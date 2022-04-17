@@ -1,6 +1,6 @@
 package com.ww.recursion;
 
-public class BinarysSearch {
+public class BinarySearch {
 
 
     /**
