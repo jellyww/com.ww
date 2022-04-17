@@ -26,7 +26,7 @@ public class InsertionSort {
 
     /**
      * 交换数组两个数的位置
-     * 注意i!=j是可用
+     * 注意i!=j时可用
      * @param arr
      * @param j
      * @param i
