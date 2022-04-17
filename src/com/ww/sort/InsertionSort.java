@@ -1,5 +1,7 @@
 package com.ww.sort;
 
+import com.ww.recursion.BinarysSearch;
+
 import java.util.Arrays;
 
 /**
@@ -13,6 +15,7 @@ public class InsertionSort {
         int[] arr = {1, 4, 3, 6, 2, 9, 7, 8, 0};
         insertionSort(arr);
         System.out.println(Arrays.toString(arr));
+        System.out.println(new BinarysSearch().searchNum(arr,5));
     }
 
     public static void insertionSort(int[] arr) {
