@@ -11,12 +11,7 @@ import java.util.Arrays;
  */
 public class InsertionSort {
 
-    public static void main(String[] args) {
-        int[] arr = {1, 4, 3, 6, 2, 9, 7, 8, 0};
-        insertionSort(arr);
-        System.out.println(Arrays.toString(arr));
-        System.out.println(new BinarysSearch().searchNum(arr,5));
-    }
+
 
     public static void insertionSort(int[] arr) {
         if (arr == null || arr.length < 2) {//数组为空或者长度为1不需要排序
