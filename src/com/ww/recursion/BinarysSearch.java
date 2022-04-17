@@ -20,7 +20,7 @@ public class BinarysSearch {
             return light;
         }
         while (light <= right) {//直到左侧指针超过了右侧指针
-            int mid = light + (right - light) / 2;//求中点，防止数组长度太长int超标
+            int mid = light + (right - light) >> 1;//求中点，防止数组长度太长int超标
             if (arr[mid] == num) {//如果命中返回坐标
                 return mid;
             } else if (arr[mid] > num) {//如果落在左边，右侧指针挪到中点前一位
@@ -50,7 +50,7 @@ public class BinarysSearch {
             return light;
         }
         while (light <= right) {
-            int mid = light + (right - light) / 2;
+            int mid = light + (right - light) >> 1;
             if (arr[mid] == num) {//找到给index赋值
                 index = mid;
             }

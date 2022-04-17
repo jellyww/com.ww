@@ -1,6 +1,7 @@
 package com.ww.test;
 
 import com.ww.recursion.BinarysSearch;
+import com.ww.recursion.LocalMin;
 import com.ww.sort.InsertionSort;
 
 import java.util.Arrays;
@@ -10,9 +11,10 @@ import java.util.Arrays;
  */
 public class Test {
     public static void main(String[] args) {
-        int[] arr = {1, 1, 1, 1, 2, 2, 3, 4, 3, 6, 2, 9, 7, 8, 0};
-        new InsertionSort().insertionSort(arr);
-        System.out.println(Arrays.toString(arr));
-        System.out.println(new BinarysSearch().searchLightNum(arr,8));
+        int[] arr = {2, 1, 2, 3, 4, 5, 6, 2, 9, 7, 8, 9};
+//        new InsertionSort().insertionSort(arr);
+//        System.out.println(Arrays.toString(arr));
+//        System.out.println(new BinarysSearch().searchLightNum(arr,8));
+        System.out.println(new LocalMin().searchLocalMin(arr));
     }
 }
