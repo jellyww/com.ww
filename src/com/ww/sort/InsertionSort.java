@@ -1,6 +1,6 @@
 package com.ww.sort;
 
-import com.ww.recursion.BinarysSearch;
+import com.ww.recursion.BinarySearch;
 
 import java.util.Arrays;
 
