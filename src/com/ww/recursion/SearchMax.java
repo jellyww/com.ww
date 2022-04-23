@@ -2,6 +2,12 @@ package com.ww.recursion;
 
 /**
  * 使用递归获取到一个数组中的最大值
+ * 递归的时间复杂度估计
+ * master公式：
+ * T（N） = a*T(N/b) + O(N^d)
+ * 当log（b,a） > d 复杂度为O（N^log(b,a)）
+ * 当log（b,a） = d 复杂度为O（N^d * log(n)）
+ * 当log（b,a） < d 复杂度为O（N^d）
  */
 public class SearchMax {
     /**

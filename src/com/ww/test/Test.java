@@ -3,6 +3,7 @@ package com.ww.test;
 import com.ww.recursion.LocalMin;
 import com.ww.recursion.SearchMax;
 import com.ww.sort.InsertionSort;
+import com.ww.sort.MergeSort;
 
 import java.util.Arrays;
 
@@ -16,6 +17,8 @@ public class Test {
 //        System.out.println(Arrays.toString(arr));
 //        System.out.println(new BinarysSearch().searchLightNum(arr,8));
 //        System.out.println(new LocalMin().searchLocalMin(arr));
-        System.out.println(new SearchMax().process(arr,0,arr.length-1));
+//        System.out.println(new SearchMax().process(arr,0,arr.length-1));
+        new MergeSort().process(arr,0,arr.length-1);
+        System.out.println(Arrays.toString(arr));
     }
 }
