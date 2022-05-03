@@ -6,6 +6,7 @@ import com.ww.recursion.NetherlandsFlag;
 import com.ww.recursion.SearchMax;
 import com.ww.sort.InsertionSort;
 import com.ww.sort.MergeSort;
+import com.ww.sort.QuickSort;
 
 import java.util.Arrays;
 
@@ -14,7 +15,7 @@ import java.util.Arrays;
  */
 public class Test {
     public static void main(String[] args) {
-        int[] arr = {2, 10, 2, 3, 4, 6, 4, 2, 9, 7, 8, 9};//18+16+21+24+25+24+8+14+8
+        int[] arr = {2, 10, 2, 3, 5, 6, 4, 2, 9, 7, 8, 9};//18+16+21+24+25+24+8+14+8
 //        new InsertionSort().inclassifysertionSort(arr);
 //        System.out.println(Arrays.toString(arr));
 //        System.out.println(new BinarysSearch().searchLightNum(arr,8));
@@ -24,7 +25,9 @@ public class Test {
 //        System.out.println(new MinSum().getMinSun(arr));
 //        int sum = new MinSum().process(arr, 0, arr.length - 1);
 //        System.out.println(sum);
-        new NetherlandsFlag().classify(arr,5,0,arr.length-1);
+//        new NetherlandsFlag().classify(arr,5,0,arr.length-1);
+//        new QuickSort().quickSort(arr,0,arr.length-1);
+        new QuickSort().sort(arr);
         System.out.println(Arrays.toString(arr));
 
     }

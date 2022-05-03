@@ -13,6 +13,9 @@ public class NetherlandsFlag {
      * @param right
      */
     public void classify(int[] arr, int num, int left, int right) {
+        if (right - left < 1) {//数组有少于两个元素，不需要分了
+            return;
+        }
         int pl = left - 1;//小于的指针
         int pr = right + 1;//大于的指针
         int p = left;//当前指针
