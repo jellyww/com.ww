@@ -18,8 +18,8 @@ public class QuickSort {
         if (left < right) {//区间内有值
             swap(arr,left+(int)(Math.random()*(right-left+1)),right);//随机生成这个区间的一个随机数并和最后一位交换
             int[] index = partiton(arr, left, right);//获取左右区间的边界
-            quickSort(arr, left, index[0] - 1);//左边数组继续排序
-            quickSort(arr, index[1] + 1, right);//右边数组继续排序
+            quickSort(arr, left, index[0]);//左边数组继续排序
+            quickSort(arr, index[1]+1, right);//右边数组继续排序
         }
     }
 
@@ -43,7 +43,7 @@ public class QuickSort {
             }
         }
         swap(arr,pr,right);
-        return new int[]{pl+1, pr};
+        return new int[]{pl, pr};
     }
 
     private void swap(int[] arr, int i, int i1) {
