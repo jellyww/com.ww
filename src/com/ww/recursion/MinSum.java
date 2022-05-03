@@ -3,6 +3,7 @@ package com.ww.recursion;
 /**
  * 小合问题：归并排序的扩展
  * 给定一个数组，每个左边的数比右边的数小，把小的这些数加起来叫做这个数组的小合。
+ * 逆序对问题，就是反过来的小合问题
  */
 public class MinSum {
     public int  process(int[] arr, int left, int right) {
