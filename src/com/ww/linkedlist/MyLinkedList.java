@@ -98,15 +98,15 @@ public class MyLinkedList {
         if (index < 0 || index > size) {//当插入位置小于0或者大于链表当前元素个数报错
             throw new Exception("链表越界啦");
         }
-        if (index == 0) {
+        if (index == 0) {//头节点，移除当前头节点，头节点指向下一个节点
             removeNode = head;
             head = head.getNext();
-        }else if (index == size - 1) {
+        }else if (index == size - 1) {//尾节点，移除当前尾节点，当前尾节点的前一个节点的next置为空
             removeNode = last;
             Node tmp = get(index - 1);
             tmp.setNext(null);
             last = tmp;
-        } else if (index > 0 && index < size - 1) {
+        } else if (index > 0 && index < size - 1) {//中间节点，移除当前节点，前一个节点next指向当前节点的下一个节点
             Node tmp = get(index - 1);
             removeNode = tmp.getNext();
             tmp.setNext(removeNode.getNext());
@@ -131,7 +131,7 @@ public class MyLinkedList {
             myLinkedList.insert("hello", 0);
             myLinkedList.insert("world",1);
             myLinkedList.insert("!",1);
-            System.out.println(myLinkedList.remove(2).getData());
+            System.out.println(myLinkedList.remove(1).getData());
         } catch (Exception e) {
             e.printStackTrace();
         }
