@@ -2,6 +2,7 @@ package com.ww.tree;
 
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.Stack;
 
 /**
  * 二叉树：
@@ -47,7 +48,7 @@ public class BinaryTree {
     }
 
     /**
-     * 前序遍历
+     * 前序遍历（递归）
      * @param node
      */
     public void preOrderTraveral(TreeNode node) {
@@ -60,6 +61,29 @@ public class BinaryTree {
     }
 
     /**
+     * 前序遍历（非递归）
+     * 使用栈的回朔特点，递归模式都可以使用栈
+     * 1。输出节点信息
+     * 2。节点入栈
+     * 3。访问节点左孩子，有左孩子回到第一步，没有左孩子并且栈内存在元素则取出栈顶元素，访问右孩子，重复第一步
+     * @param root
+     */
+    public void preOrderTraveralWithStack(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<TreeNode>();//创建栈存储节点
+        TreeNode node = root;
+        while (node != null || !stack.isEmpty()) {//节点不为空或者栈不为空。
+            while (node != null) {//循环访问左孩子并入栈
+                System.out.print(node.getData() + " ");
+                stack.push(node);//将该节点压入栈中
+                node = node.getLeftChild();//遍历左孩子
+            }
+            if (!stack.isEmpty()) {//没有左孩子时，出栈，并访问右孩子
+                node = stack.pop();
+                node = node.getRightChild();
+            }
+        }
+    }
+    /**
      * 中序遍历
      * @param node
      */
@@ -70,6 +94,26 @@ public class BinaryTree {
         inOrderTraveral(node.getLeftChild());
         System.out.print(node.getData());
         inOrderTraveral(node.getRightChild());
+    }
+
+    /**
+     * 中序遍历（栈）
+     * @param root
+     */
+    public void inOrderTraveralWithStack(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode node = root;
+        while (node != null || !stack.isEmpty()) {
+            while (node != null) {
+                stack.push(node);
+                node = node.getLeftChild();
+            }
+            if (!stack.isEmpty()) {
+                node = stack.pop();
+                System.out.print(node.getData());
+                node = node.getRightChild();
+            }
+        }
     }
 
     /**
@@ -85,6 +129,38 @@ public class BinaryTree {
         System.out.print(node.getData());
     }
 
+    /**
+     * 后续遍历（非递归）
+     *
+     * @param root
+     */
+    public void postOrderTraveralWithStack(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode node = root;
+        TreeNode re = null;//避免遍历已经遍历过的左子树
+        while (node != null || !stack.isEmpty()) {
+            while (node != null) {//遍历到最左的节点
+                stack.push(node);
+                node = node.getLeftChild();
+            }
+            if (!stack.isEmpty()) {//栈内还有元素
+                node = stack.peek();//拿到栈顶元素
+                TreeNode right = node.getRightChild();//获取栈顶的左孩子
+                if (right != null && right != re) {//右孩子不为空，并且不等于上一个输出的节点
+                    stack.push(right);//右孩子入栈
+                    node = right.getLeftChild();//遍历以右孩子为根节点的子树
+                } else {//右孩子为空，证明栈顶元素无子节点或者是右节点
+                    node = stack.pop();//栈顶元素出栈
+                    System.out.print(node.getData());
+                    re = node;//记录输出的节点
+                    node = null;//当前节点打印完毕，置空
+                }
+
+            }
+        }
+    }
+
+
     public static void main(String[] args) {
         LinkedList inputList = new LinkedList(Arrays.asList(new Integer[]{1, 4, 9, null, null, 2, null, null, 8, null, 5}));
         BinaryTree binaryTree = new BinaryTree();
@@ -92,9 +168,17 @@ public class BinaryTree {
         System.out.println(root.getData());
         System.out.println("前序遍历：");
         binaryTree.preOrderTraveral(root);
+        System.out.println();
+        binaryTree.preOrderTraveralWithStack(root);
+        System.out.println();
         System.out.println("中序遍历");
         binaryTree.inOrderTraveral(root);
+        System.out.println();
+        binaryTree.inOrderTraveralWithStack(root);
+        System.out.println();
         System.out.println("后续遍历");
         binaryTree.postOrderTraveral(root);
+        System.out.println();
+        binaryTree.postOrderTraveralWithStack(root);
     }
 }
