@@ -2,6 +2,7 @@ package com.ww.tree;
 
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -160,6 +161,26 @@ public class BinaryTree {
         }
     }
 
+    /**
+     * 层级遍历：
+     * 使用队列
+     * @param root
+     */
+    public void levelOrderTraveral(TreeNode root) {
+        Queue<TreeNode> queue = new LinkedList<>();//创建队列
+        queue.offer(root);//根节点进入队列
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();//出队列
+            System.out.print(node.getData());//输出数据
+            if (node.getLeftChild() != null) {//左孩子非空，左孩子进入队列
+                queue.offer(node.getLeftChild());
+            }
+            if (node.getRightChild() != null) {//右孩子非空，右孩子进入队列
+                queue.offer(node.getRightChild());
+            }
+        }
+    }
+
 
     public static void main(String[] args) {
         LinkedList inputList = new LinkedList(Arrays.asList(new Integer[]{1, 4, 9, null, null, 2, null, null, 8, null, 5}));
@@ -180,5 +201,8 @@ public class BinaryTree {
         binaryTree.postOrderTraveral(root);
         System.out.println();
         binaryTree.postOrderTraveralWithStack(root);
+        System.out.println();
+        System.out.println("层级遍历");
+        binaryTree.levelOrderTraveral(root);
     }
 }
