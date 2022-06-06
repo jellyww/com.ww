@@ -9,9 +9,9 @@ import java.util.Arrays;
  * 最小堆：任何一个父节点都小于等于他左右孩子节点的值
  * 根节点叫做堆顶
  * 自我调整包括：
- * 插入节点：插入位置是完全二叉堆的最后一个位置，一直上浮到不必父节点小或者到堆顶
- * 删除节点：删除堆顶元素，先将最后一个元素补到堆顶，和最后孩子较小的比较，比小的大的话就下沉，直到不比左右孩子大或者到叶子节点
- * 构建二叉堆：让所有非叶子节点依次下沉。
+ * 插入节点：插入位置是完全二叉堆的最后一个位置，一直上浮到不必父节点小或者到堆顶O(logn)
+ * 删除节点：删除堆顶元素，先将最后一个元素补到堆顶，和最后孩子较小的比较，比小的大的话就下沉，直到不比左右孩子大或者到叶子节点O(logn)
+ * 构建二叉堆：让所有非叶子节点依次下沉。O(n)
  */
 public class Heap {
     /**
@@ -59,7 +59,7 @@ public class Heap {
     }
 
 
-    private static void swap(int[] arr, int childIndex, int parentIndex) {
+    public static void swap(int[] arr, int childIndex, int parentIndex) {
         arr[childIndex] = arr[childIndex] ^ arr[parentIndex];
         arr[parentIndex] = arr[childIndex] ^ arr[parentIndex];
         arr[childIndex] = arr[childIndex] ^ arr[parentIndex];
